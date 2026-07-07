@@ -51,12 +51,29 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    background-color: var(--white);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(16, 38, 63, 0.08);
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .nav-links {
