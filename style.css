@@ -1788,3 +1788,70 @@ footer {
 .hd-preview-wrapper #hd-preview-clone {
     transform: none !important;
 }
+
+/* Starry Blue Celebration Specifics */
+.live-frame-preview.design-starry-blue-celebration {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px) !important;
+    background-size: 20px 20px !important;
+}
+.live-frame-preview.design-starry-blue-celebration .photo-slot-item {
+    border: 3.5px solid #0056b3 !important;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.live-frame-preview.design-starry-blue-celebration .photo-slot-item::after {
+    content: '★';
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    color: #ffd700;
+    font-size: 10px;
+    z-index: 5;
+    text-shadow: 1px 1px 0px #000;
+}
+.live-frame-preview.design-starry-blue-celebration .photo-slot-item::before {
+    content: '★';
+    position: absolute;
+    bottom: -5px;
+    right: 5px;
+    color: #ffd700;
+    font-size: 10px;
+    z-index: 5;
+    text-shadow: 1px 1px 0px #000;
+}
+
+/* Royal Red Damask Specifics */
+.live-frame-preview.design-royal-red-damask {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px) !important;
+    background-size: 24px 24px !important;
+    background-position: 0 0, 12px 12px !important;
+}
+.live-frame-preview.design-royal-red-damask .photo-slot-item {
+    border: 3px double rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Sweetheart Lace Frame Specifics */
+.live-frame-preview.design-sweetheart-lace-frame {
+    background-image: linear-gradient(30deg, rgba(255,255,255,0.05) 25%, transparent 25%), linear-gradient(210deg, rgba(255,255,255,0.05) 25%, transparent 25%) !important;
+    background-size: 20px 20px !important;
+}
+.live-frame-preview.design-sweetheart-lace-frame .photo-slot-item {
+    border: 3px dashed rgba(255,255,255,0.4) !important;
+}
+
+/* Minimalist Love Specifics */
+.live-frame-preview.design-minimalist-love {
+    background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 0) !important;
+    background-size: 12px 12px !important;
+}
+.live-frame-preview.design-minimalist-love .photo-slot-item {
+    border: 2px solid rgba(255,255,255,0.4) !important;
+}
+
+/* Nature Duo Split-Screen Specifics */
+.live-frame-preview.design-nature-duo-split-screen {
+    background-image: linear-gradient(90deg, var(--frame-color, #0f5257) 50%, #800000 50%) !important;
+}
+.live-frame-preview.design-nature-duo-split-screen .photo-slot-item {
+    border: 2px solid rgba(255,255,255,0.5) !important;
+}

@@ -549,7 +549,7 @@ function renderDetailPageLayout(template) {
         <!-- Left Column: Frame Live Preview -->
         <div class="detail-gallery">
             <div class="main-image-preview-container">
-                <div id="live-frame-preview" class="live-frame-preview size-${detailState.size}">
+                <div id="live-frame-preview" class="live-frame-preview size-${detailState.size} design-${detailState.frameId}">
                     <!-- Frame Borders -->
                     <div class="frame-border-outer">
                         <div class="frame-border-inner">
@@ -685,27 +685,109 @@ function getSVGDecorations(type) {
                 <path d="M25,38.5 L25,60 C25,70 75,70 75,60 L75,38.5 L50,48 Z" />
                 <path d="M80,31.5 L80,75 L83,75 L83,32.5 Z" />
             </svg>
+            <div style="position:absolute; top: 12px; left: 12px; color: rgba(255,255,255,0.5); font-size: 0.8rem; z-index: 10;">
+                <i class="fas fa-graduation-cap"></i> GRADUATION
+            </div>
         `;
     } else if (type === 'anniversary') {
         return `
-            <div class="decor-hearts" style="position:absolute; top: 10px; left: 10px; color: var(--primary-color); font-size: 1.5rem;">
-                <i class="fas fa-heart"></i>
-            </div>
-            <div class="decor-hearts" style="position:absolute; bottom: 85px; right: 10px; color: var(--primary-color); font-size: 1.2rem;">
-                <i class="fas fa-heart"></i>
-            </div>
+            <!-- Lace scalloped borders on left and right -->
+            <div style="position:absolute; top:15px; bottom:75px; left:8px; width:4px; background: radial-gradient(rgba(255,255,255,0.4) 2px, transparent 0) repeat-y; background-size: 8px 8px; z-index:10;"></div>
+            <div style="position:absolute; top:15px; bottom:75px; right:8px; width:4px; background: radial-gradient(rgba(255,255,255,0.4) 2px, transparent 0) repeat-y; background-size: 8px 8px; z-index:10;"></div>
+            
+            <!-- Hearts stickers -->
+            <div style="position:absolute; top: 12px; left: 15px; color: #ff4d6d; font-size: 1rem; z-index: 10;"><i class="fas fa-heart"></i></div>
+            <div style="position:absolute; top: 12px; right: 15px; color: #ff4d6d; font-size: 1rem; z-index: 10;"><i class="fas fa-heart"></i></div>
+            
+            <!-- Heart frame tag at the bottom label -->
+            <div style="position:absolute; bottom: 82px; left: 50%; transform: translateX(-50%); color: #ff4d6d; font-size: 1.1rem; z-index: 12;"><i class="fas fa-heart"></i></div>
         `;
     } else if (type === 'birthday') {
         return `
-            <div class="decor-balloons" style="position:absolute; top: 10px; right: 10px; color: var(--primary-color); font-size: 1.4rem;">
-                <i class="fas fa-birthday-cake"></i>
+            <!-- Theater Curtain at top -->
+            <div class="theater-curtain" style="position:absolute; top:0; left:0; width:100%; height:25px; background: repeating-linear-gradient(90deg, #d90429, #d90429 10px, #ef233c 10px, #ef233c 20px); border-bottom: 3px solid #ffb703; z-index: 10; border-radius: 6px 6px 0 0;"></div>
+            
+            <!-- Cartoon Cat Sticker bottom-left -->
+            <div class="party-sticker sticker-cat" style="position:absolute; bottom: 80px; left: -10px; z-index: 12; width: 60px; height: 60px; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); transform: rotate(-10deg);">
+                <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                    <!-- Hat -->
+                    <polygon points="50,5 35,40 65,40" fill="#ffb703" stroke="#fff" stroke-width="2"/>
+                    <circle cx="50" cy="5" r="5" fill="#d90429"/>
+                    <!-- Cat Head -->
+                    <circle cx="50" cy="65" r="25" fill="#eaeaea" stroke="#333" stroke-width="2"/>
+                    <!-- Ears -->
+                    <polygon points="30,48 20,25 40,48" fill="#eaeaea" stroke="#333" stroke-width="2"/>
+                    <polygon points="70,48 80,25 60,48" fill="#eaeaea" stroke="#333" stroke-width="2"/>
+                    <!-- Eyes -->
+                    <circle cx="42" cy="60" r="3" fill="#333"/>
+                    <circle cx="58" cy="60" r="3" fill="#333"/>
+                    <!-- Nose & Whiskers -->
+                    <circle cx="50" cy="67" r="2" fill="#d90429"/>
+                    <line x1="32" y1="67" x2="15" y2="65" stroke="#333" stroke-width="2"/>
+                    <line x1="32" y1="72" x2="15" y2="75" stroke="#333" stroke-width="2"/>
+                    <line x1="68" y1="67" x2="85" y2="65" stroke="#333" stroke-width="2"/>
+                    <line x1="68" y1="72" x2="85" y2="75" stroke="#333" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <!-- Bat Sticker top-right -->
+            <div class="party-sticker sticker-bat" style="position:absolute; top: 110px; right: 15px; z-index: 12; width: 35px; height: 25px; filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.4)); transform: rotate(15deg);">
+                <svg viewBox="0 0 100 60" style="width:100%; height:100%; fill: #2b2d42;">
+                    <path d="M50,15 C45,5 30,5 20,15 C10,25 0,15 5,35 C10,45 35,50 50,35 C65,50 90,45 95,35 C100,15 90,25 80,15 C70,5 55,5 50,15 Z" />
+                    <circle cx="44" cy="20" r="2" fill="#d90429"/>
+                    <circle cx="56" cy="20" r="2" fill="#d90429"/>
+                </svg>
+            </div>
+
+            <!-- Teddy Bear Sticker -->
+            <div class="party-sticker sticker-bear" style="position:absolute; bottom: 85px; right: 10px; z-index: 12; width: 35px; height: 35px; filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3)); transform: rotate(5deg);">
+                <svg viewBox="0 0 100 100" style="width:100%; height:100%; fill: #c6a47e;">
+                    <circle cx="30" cy="30" r="15" fill="#c6a47e" stroke="#fff" stroke-width="2"/>
+                    <circle cx="70" cy="30" r="15" fill="#c6a47e" stroke="#fff" stroke-width="2"/>
+                    <circle cx="50" cy="60" r="30" fill="#c6a47e" stroke="#fff" stroke-width="2"/>
+                    <circle cx="40" cy="55" r="3" fill="#333"/>
+                    <circle cx="60" cy="55" r="3" fill="#333"/>
+                    <circle cx="50" cy="67" r="10" fill="#eaeaea"/>
+                    <circle cx="50" cy="65" r="3" fill="#333"/>
+                </svg>
+            </div>
+
+            <!-- Comic Splash "HAPPY BIRTHDAY" at bottom -->
+            <div class="comic-splash-wrapper" style="position:absolute; bottom: -8px; left: 50%; transform: translateX(-50%); z-index: 15; width: 85%; height: 75px; display:flex; align-items:center; justify-content:center;">
+                <div class="comic-splash-bubble" style="position:relative; width:100%; height:100%;">
+                    <svg viewBox="0 0 200 80" style="width:100%; height:100%;">
+                        <polygon points="100,5 120,25 150,15 140,40 180,35 150,55 170,75 125,65 110,78 95,65 75,78 70,60 30,70 50,50 20,35 60,35 50,15 80,25" fill="#ffd700" stroke="#d90429" stroke-width="3"/>
+                        <polygon points="100,10 115,28 142,20 134,42 170,38 143,54 160,70 123,61 110,72 97,61 77,72 73,57 37,65 54,47 28,38 63,38 55,20 83,28" fill="#ffb703"/>
+                    </svg>
+                    <div style="position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-4deg); font-family: 'Arial Black', Impact, sans-serif; font-size: 1.15rem; font-weight:900; color: #fff; text-shadow: 2px 2px 0 #d90429, -2px -2px 0 #d90429, 2px -2px 0 #d90429, -2px 2px 0 #d90429, 3px 3px 0 #000; text-align:center; white-space:nowrap; width:100%;">
+                        HAPPY<br>BIRTHDAY
+                    </div>
+                </div>
             </div>
         `;
     } else if (type === 'family') {
         return `
-            <div class="decor-leaves" style="position:absolute; bottom: 80px; left: 10px; color: var(--primary-color); font-size: 1.2rem;">
-                <i class="fas fa-leaf"></i>
+            <!-- Split screen border -->
+            <div style="position:absolute; top:12px; bottom:78px; left:12px; right:12px; border-right: 2px dashed rgba(255,255,255,0.3); pointer-events:none; z-index:1;"></div>
+            <div style="position:absolute; bottom: 80px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: 1.2rem; z-index: 10;"><i class="fas fa-seedling"></i></div>
+        `;
+    } else if (type === 'wedding') {
+        return `
+            <!-- Top elegant bar -->
+            <div style="position:absolute; top:12px; left:12px; right:12px; border-top: 2px solid rgba(255,255,255,0.4); z-index: 10;"></div>
+            
+            <!-- Ribbon at bottom -->
+            <div style="position:absolute; bottom: 78px; left: 50%; transform: translateX(-50%); z-index: 12; width: 40px; height: 20px; color: rgba(255,255,255,0.7); display:flex; justify-content:center; align-items:center;">
+                <i class="fas fa-ribbon" style="font-size:1.5rem;"></i>
             </div>
+            
+            <!-- Double elegant border inside text overlay -->
+            <div class="wedding-overlay-border" style="position:absolute; bottom:10px; left:12px; right:12px; height:60px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 8px; pointer-events:none; z-index: 1;"></div>
+        `;
+    } else if (type === 'minimalist-love') {
+        return `
+            <div style="position:absolute; bottom: 80px; left: 15px; color: rgba(255,255,255,0.6); font-size: 1.2rem; z-index:10;"><i class="fas fa-feather-alt"></i></div>
+            <div style="position:absolute; bottom: 80px; right: 15px; color: rgba(255,255,255,0.6); font-size: 1.2rem; z-index:10; transform: scaleX(-1);"><i class="fas fa-feather-alt"></i></div>
         `;
     }
     return '';
@@ -957,7 +1039,14 @@ function updatePreviewAndForm() {
                 { name: 'Orange', hex: '#b56133' },
                 { name: 'Emerald', hex: '#0f5257' },
                 { name: 'Gold', hex: '#d4af37' },
-                { name: 'Rose Gold', hex: '#b76e79' }
+                { name: 'Rose Gold', hex: '#b76e79' },
+                { name: 'Biru Cerah', hex: '#4895ef' },
+                { name: 'Ungu', hex: '#7209b7' },
+                { name: 'Tosca', hex: '#20b2aa' },
+                { name: 'Coksu', hex: '#c6a47e' },
+                { name: 'Abu Muda', hex: '#cccccc' },
+                { name: 'Abu Tua', hex: '#555555' },
+                { name: 'Abu Monyet', hex: '#968574' }
             ]);
         }
 
@@ -1073,7 +1162,7 @@ function initRingkasanPage() {
     const previewContainer = document.getElementById('summary-preview-slot');
     if (previewContainer) {
         previewContainer.innerHTML = `
-            <div id="live-frame-preview" class="live-frame-preview size-${currentOrder.size}" style="--frame-color: ${currentOrder.color}; --frame-text-color: ${currentOrder.color === '#ffffff' ? 'var(--text-dark)' : 'var(--white)'}; font-family: ${currentOrder.font}; width: 100%; height: auto; min-height: 380px;">
+            <div id="live-frame-preview" class="live-frame-preview size-${currentOrder.size} design-${currentOrder.frameId}" style="--frame-color: ${currentOrder.color}; --frame-text-color: ${currentOrder.color === '#ffffff' ? 'var(--text-dark)' : 'var(--white)'}; font-family: ${currentOrder.font}; width: 100%; height: auto; min-height: 380px;">
                 <div class="frame-border-outer">
                     <div class="frame-border-inner">
                         <div class="photo-slots-grid slots-count-${currentOrder.photos.length}">
@@ -1503,7 +1592,7 @@ function renderStatusPageLayout(order) {
                     Visual Frame Foto Digital Anda
                 </div>
                 
-                <div id="live-frame-preview" class="live-frame-preview size-${order.size}" style="--frame-color: ${order.color}; --frame-text-color: ${order.color === '#ffffff' ? 'var(--text-dark)' : 'var(--white)'}; font-family: ${order.font}; width: 100%; height: auto; min-height: 400px; transform: scale(0.9); transform-origin: top center; margin-bottom: -40px;">
+                <div id="live-frame-preview" class="live-frame-preview size-${order.size} design-${order.frameId}" style="--frame-color: ${order.color}; --frame-text-color: ${order.color === '#ffffff' ? 'var(--text-dark)' : 'var(--white)'}; font-family: ${order.font}; width: 100%; height: auto; min-height: 400px; transform: scale(0.9); transform-origin: top center; margin-bottom: -40px;">
                     <div class="frame-border-outer">
                         <div class="frame-border-inner">
                             <div class="photo-slots-grid slots-count-${order.photos.length}">
