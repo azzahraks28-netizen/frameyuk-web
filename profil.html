@@ -30,7 +30,7 @@
                     <ul>
                         <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
                         <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
                         <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
                     </ul>
                 </div>
@@ -38,13 +38,25 @@
         </div>
     </header>
 
+    <!-- Breadcrumb & Back -->
+    <div class="breadcrumb">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; max-width: 1200px; margin: 0 auto; padding: 20px 5% 0;">
+            <div>
+                <a href="index.html">Beranda</a> &gt; <span>Profil Saya</span>
+            </div>
+            <a href="katalog.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+    </div>
+
     <main class="dashboard-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <ul class="sidebar-menu">
                 <li><a href="profil.html" class="active"><i class="fas fa-user"></i> Profil</a></li>
                 <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
                 <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
             </ul>
         </aside>
@@ -57,7 +69,7 @@
             </div>
 
             <div class="profile-details-container">
-                <form id="profileForm" onsubmit="saveProfile(event)">
+                <form id="profileForm">
                     <div style="display: flex; gap: 30px; margin-bottom: 30px; align-items: center; flex-wrap: wrap;">
                         <div id="profile-avatar-container" style="width: 100px; height: 100px; border-radius: 50%; background-color: #eaeaea; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #aaa; overflow: hidden;">
                             <i class="fas fa-user"></i>
@@ -69,40 +81,36 @@
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;" class="status-layout-grid">
                         <div class="form-group">
                             <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" class="form-input" value="Ahmad User" style="border: 1px solid #ddd; width: 100%;" required>
+                            <input type="text" id="name" class="form-input" value="Ahmad" style="border: 1px solid #ddd; width: 100%; height:45px; border-radius:8px; padding:0 15px;" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Alamat Email</label>
-                            <input type="email" id="email" class="form-input" value="user@example.com" style="border: 1px solid #ddd; width: 100%;" required>
+                            <input type="email" id="email" class="form-input" value="ahmad@example.com" style="border: 1px solid #ddd; width: 100%; height:45px; border-radius:8px; padding:0 15px;" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Nomor Telepon</label>
-                            <input type="tel" id="phone" class="form-input" value="081234567890" style="border: 1px solid #ddd; width: 100%;" required>
+                            <input type="tel" id="phone" class="form-input" value="081234567890" style="border: 1px solid #ddd; width: 100%; height:45px; border-radius:8px; padding:0 15px;" required>
                         </div>
                         <div class="form-group">
                             <label for="dob">Tanggal Lahir</label>
-                            <input type="date" id="dob" class="form-input" value="1998-05-15" style="border: 1px solid #ddd; width: 100%;">
+                            <input type="date" id="dob" class="form-input" value="2004-08-15" style="border: 1px solid #ddd; width: 100%; height:45px; border-radius:8px; padding:0 15px;">
                         </div>
                     </div>
 
-
-
-                    <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Simpan Perubahan</button>
+                    <button type="submit" class="btn-primary" style="border: none; cursor: pointer; padding: 12px 30px;">Simpan Perubahan</button>
                 </form>
             </div>
         </div>
     </main>
 
+    <!-- Simple Footer -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
-    <script>
-        function saveProfile(event) {
-            event.preventDefault();
-            alert('Profil berhasil diperbarui!');
-        }
-    </script>
 </body>
 </html>
-

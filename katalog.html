@@ -11,28 +11,49 @@
 <body class="bg-light">
 
     <!-- Top Navigation Bar -->
-    <header class="navbar-top">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+    <header class="navbar-top" style="padding: 15px 5%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <!-- Logo -->
+            <a href="index.html" class="logo" style="display: flex; align-items: center;">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img" style="height: 45px; width: auto;">
             </a>
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cari frame...">
+            
+            <!-- Search Bar -->
+            <div class="search-bar" style="display: flex; align-items: center; background-color: #f7f9fc; padding: 10px 20px; border-radius: 50px; width: 450px; border: 1px solid #e2e8f0; position: relative;">
+                <i class="fas fa-search" style="color: #94a3b8; margin-right: 12px; font-size: 1rem;"></i>
+                <input type="text" placeholder="Temukan Disini" style="border: none; background: transparent; outline: none; width: 100%; font-size: 0.95rem; color: var(--text-dark);">
+                <i class="fas fa-filter" style="color: #94a3b8; cursor: pointer; margin-left: 12px;"></i>
             </div>
-            <div class="user-profile">
-                <div class="user-info">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Halo, User</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="user-dropdown">
-                    <ul>
-                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
-                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
-                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
-                    </ul>
+            
+            <!-- Right Actions (Bell, Cart/Pesanan, Profile) -->
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <!-- Bell Icon -->
+                <a href="notifikasi.html" style="position: relative; color: var(--text-dark); font-size: 1.3rem;">
+                    <i class="far fa-bell"></i>
+                    <span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%;"></span>
+                </a>
+                
+                <!-- Pesanan Button -->
+                <a href="pesanan.html" class="btn-pesanan-cart" style="background-color: var(--white); color: var(--text-dark); border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 8px 16px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s;">
+                    <span>Pesanan</span>
+                    <i class="fas fa-shopping-cart" style="color: var(--primary-color);"></i>
+                </a>
+                
+                <!-- User profile greeting dropdown -->
+                <div class="user-profile">
+                    <div class="user-info" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <i class="fas fa-user-circle" style="font-size: 1.6rem; color: var(--text-light);"></i>
+                        <span style="font-weight: 500; font-size: 0.9rem; color: var(--text-dark);">Halo, User</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem; color: var(--text-light);"></i>
+                    </div>
+                    <div class="user-dropdown">
+                        <ul>
+                            <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                            <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                            <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
+                            <li><a href="#" class="text-danger" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,78 +72,108 @@
         </div>
 
         <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="semua">Semua</button>
+            <button class="filter-btn active" data-filter="semua">Rekomendasi</button>
             <button class="filter-btn" data-filter="wisuda">Wisuda</button>
             <button class="filter-btn" data-filter="anniversary">Anniversary</button>
-            <button class="filter-btn" data-filter="ulang-tahun">Ulang Tahun</button>
-            <button class="filter-btn" data-filter="keluarga">Keluarga</button>
-            <button class="filter-btn" data-filter="kpop">Kpop</button>
+            <button class="filter-btn" data-filter="ulang-tahun">Happy Birthday</button>
+            <button class="filter-btn" data-filter="wedding">Wedding</button>
+            <button class="filter-btn" data-filter="keluarga">Family</button>
         </div>
 
-        <div class="product-grid katalog-grid">
-            <!-- Product 1 -->
-            <div class="product-card" data-category="wisuda">
-                <div class="image-wrapper">
-                    <img src="frame_wisuda.png" alt="Frame Wisuda">
-                    <span class="badge-new">New</span>
+        <div class="product-grid katalog-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <!-- Card 1: Royal Red Damask -->
+            <div class="product-card" data-category="wedding" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Wedding</span>
+                        <img src="frame_anniversary.png" alt="Royal Red Damask" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Royal Red Damask</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Desain klasik dengan tekstur damask merah mewah, sempurna untuk momen pernikahan elegan.</p>
                 </div>
-                <h3>Frame Wisuda 3 Slot</h3>
-                <p>Frame elegan untuk 3 foto wisuda dengan latar belakang biru klasik.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 45.000</span>
-                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
-                </div>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card" data-category="wisuda">
-                <div class="image-wrapper">
-                    <img src="frame_wisuda.png" alt="Frame Wisuda">
-                </div>
-                <h3>Frame Wisuda Classic</h3>
-                <p>Desain minimalis dengan ornamen toga dan pita emas.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 45.000</span>
-                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 20.000</span>
+                    <a href="detail.html?id=royal-red-damask" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
                 </div>
             </div>
 
-            <!-- Product 3 -->
-            <div class="product-card" data-category="anniversary">
-                <div class="image-wrapper">
-                    <img src="frame_anniversary.png" alt="Frame Anniversary">
+            <!-- Card 2: Starry Blue Celebration -->
+            <div class="product-card" data-category="ulang-tahun" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Happy Birthday</span>
+                        <img src="frame_birthday.png" alt="Starry Blue Celebration" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Starry Blue Celebration</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Latar belakang biru berbintang yang meriah dan ceria, pas untuk merayakan ulang tahun.</p>
                 </div>
-                <h3>Frame Anniversary Floral</h3>
-                <p>Desain romantis dengan hiasan bunga, cocok untuk hadiah kado.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 50.000</span>
-                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card" data-category="ulang-tahun">
-                <div class="image-wrapper">
-                    <img src="frame_birthday.png" alt="Frame Ulang Tahun">
-                </div>
-                <h3>Frame Birthday Party</h3>
-                <p>Warna-warni ceria untuk momen ulang tahun yang tak terlupakan.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 40.000</span>
-                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 20.000</span>
+                    <a href="detail.html?id=starry-blue-celebration" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
                 </div>
             </div>
 
-            <!-- Product 5 -->
-            <div class="product-card" data-category="keluarga">
-                <div class="image-wrapper">
-                    <img src="frame_wisuda.png" alt="Frame Keluarga">
+            <!-- Card 3: Nature duo Split-Screen -->
+            <div class="product-card" data-category="keluarga" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Family</span>
+                        <img src="frame_wisuda.png" alt="Nature duo Split-Screen" style="width: 100%; height: 100%; object-fit: contain; filter: hue-rotate(90deg);">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Nature duo Split-Screen</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Kombinasi warna merah dan hijau alam yang kontras, mencerminkan kehangatan dan keragaman keluarga.</p>
                 </div>
-                <h3>Frame Family Tree</h3>
-                <p>Simpan kenangan keluarga dalam frame bernuansa kayu yang elegan.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 55.000</span>
-                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 15.000</span>
+                    <a href="detail.html?id=nature-duo-split-screen" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Grad Stripe Showcase -->
+            <div class="product-card" data-category="wisuda" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Wisuda</span>
+                        <img src="frame_wisuda.png" alt="Grad Stripe Showcase" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Grad Stripe Showcase</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Desain bertema kelulusan dengan layout yang bersih dan estetik, sempurna untuk mengabadikan momen wisuda Anda.</p>
+                </div>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 15.000</span>
+                    <a href="detail.html?id=grad-stripe-showcase" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
+                </div>
+            </div>
+
+            <!-- Card 5: Sweetheart Lace Frame -->
+            <div class="product-card" data-category="anniversary" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Anniversary</span>
+                        <img src="frame_anniversary.png" alt="Sweetheart Lace Frame" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Sweetheart Lace Frame</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Desain renda manis dengan jendela berbentuk hati, mengabadikan cinta dalam detail yang hangat.</p>
+                </div>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 17.000</span>
+                    <a href="detail.html?id=sweetheart-lace-frame" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
+                </div>
+            </div>
+
+            <!-- Card 6: Minimalist Love -->
+            <div class="product-card" data-category="anniversary" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div>
+                    <div class="image-wrapper" style="position: relative;">
+                        <span style="position: absolute; top: 12px; left: 12px; background-color: var(--navy); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;">Anniversary</span>
+                        <img src="frame_anniversary.png" alt="Minimalist Love" style="width: 100%; height: 100%; object-fit: contain; filter: hue-rotate(320deg);">
+                    </div>
+                    <h3 style="font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom: 8px;">Minimalist Love</h3>
+                    <p style="color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 15px;">Layout minimalis tiga kotak vertikal dengan sentuhan ilustrasi cinta, untuk kisah cinta yang abadi.</p>
+                </div>
+                <div class="card-footer" style="border-top: none; padding-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%;">
+                    <span class="price" style="font-weight: 700; color: var(--navy); font-size: 1.05rem;">Mulai dari Rp 18.000</span>
+                    <a href="detail.html?id=minimalist-love" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px 0; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-align: center;">Pilih Template</a>
                 </div>
             </div>
         </div>

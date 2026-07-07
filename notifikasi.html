@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran Berhasil - FrameYuk</title>
+    <title>Notifikasi Saya - FrameYuk</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -36,27 +36,28 @@
 
     <!-- Breadcrumb & Back -->
     <div class="breadcrumb">
-        <div class="container" style="display:flex; justify-content:space-between; align-items:center; max-width: 1200px; margin: 0 auto; padding: 20px 5% 0;">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; max-width: 800px; margin: 0 auto;">
             <div>
-                <a href="index.html">Beranda</a> &gt; <span>Pembayaran Sukses</span>
+                <a href="index.html">Beranda</a> &gt; <span>Notifikasi Saya</span>
             </div>
-            <a href="index.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            <a href="javascript:history.back()" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-arrow-left"></i> Kembali
             </a>
         </div>
     </div>
 
-    <main class="success-container" style="min-height: calc(100vh - 160px); padding: 40px 5%;">
-        <div class="success-card" style="background: var(--white); padding: 50px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center; max-width: 480px; width: 100%; margin: 0 auto;">
-            <div class="success-icon" style="font-size: 5rem; color: #2ecc71; margin-bottom: 20px;">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2 style="font-weight:700; margin-bottom:15px;">Pembayaran Berhasil!</h2>
-            <p style="color: var(--text-light); margin-bottom: 35px; line-height: 1.6;">Terima kasih, pembayaran untuk pesanan <strong>#FY-00123</strong> telah kami terima. Tim kami akan segera memproses pesanan Anda.</p>
-            
-            <div class="success-actions" style="display: flex; flex-direction: column; gap: 15px;">
-                <a href="pesanan.html" class="btn-primary" style="justify-content: center; padding: 15px 0; font-weight:600;">Cek Status Pesanan</a>
-                <a href="index.html" class="btn-outline" style="display: block; padding: 15px 0; font-weight:600; border-radius:50px; text-align:center;">Kembali ke Beranda</a>
+    <!-- Main Content -->
+    <main style="max-width: 800px; margin: 40px auto; padding: 0 5%; min-height: 500px;">
+        <div class="page-header-small" style="margin-bottom: 30px;">
+            <h2 style="font-size:1.8rem; font-weight:700;"><i class="fas fa-bell" style="color:var(--primary-color); margin-right:10px;"></i> Notifikasi Saya</h2>
+            <p>Pantau semua riwayat pengerjaan dan status pembayaran Anda</p>
+        </div>
+
+        <div id="notifications-list-container">
+            <!-- Dynamically loaded list of notification cards will go here -->
+            <div style="color: var(--text-light); text-align:center; padding: 40px;">
+                <i class="fas fa-spinner fa-spin" style="font-size:2rem; margin-bottom:10px;"></i>
+                <p>Memuat daftar notifikasi...</p>
             </div>
         </div>
     </main>

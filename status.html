@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pesanan - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar-top">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+            </a>
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Halo, User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown">
+                    <ul>
+                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                        <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
+                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main style="padding: 20px 5%; width: 100%;">
+        <div class="dashboard-content" style="margin: 0 auto; background: transparent; padding: 0; box-shadow: none; width: 100%;">
+            <!-- Script will render the stepper progress page layout dynamically inside this element -->
+            <div style="color: var(--text-light); text-align:center; padding: 80px 20px;">
+                <i class="fas fa-spinner fa-spin" style="font-size:2rem; margin-bottom:10px;"></i>
+                <p>Memuat status pesanan...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

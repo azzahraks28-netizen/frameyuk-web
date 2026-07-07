@@ -194,9 +194,24 @@
     <script>
         function handleLogin(event) {
             event.preventDefault();
-            // Simpan status login sederhana
+            const email = document.getElementById('email').value;
+            const name = email.split('@')[0];
+            const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+            
+            const user = {
+                name: capitalizedName,
+                email: email,
+                phone: '081234567890',
+                dob: '2004-08-15',
+                avatar: ''
+            };
+            
+            localStorage.setItem('fy_logged_in_user', JSON.stringify(user));
             localStorage.setItem('isLoggedIn', 'true');
-            // Arahkan langsung ke halaman katalog setelah berhasil login
+            
+            // compatibility fields
+            localStorage.setItem('profile_name', capitalizedName);
+            
             window.location.href = 'katalog.html';
         }
     </script>

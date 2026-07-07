@@ -30,7 +30,7 @@
                     <ul>
                         <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
                         <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
                         <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
                     </ul>
                 </div>
@@ -38,13 +38,25 @@
         </div>
     </header>
 
+    <!-- Breadcrumb & Back -->
+    <div class="breadcrumb">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; max-width: 1200px; margin: 0 auto; padding: 20px 5% 0;">
+            <div>
+                <a href="index.html">Beranda</a> &gt; <span>Pesanan Saya</span>
+            </div>
+            <a href="katalog.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+    </div>
+
     <main class="dashboard-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <ul class="sidebar-menu">
                 <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
                 <li><a href="pesanan.html" class="active"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
                 <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
             </ul>
         </aside>
@@ -77,29 +89,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-status="unpaid">
-                            <td>#FY-00123</td>
-                            <td>12 Okt 2026</td>
-                            <td>Frame Wisuda 3 Slot</td>
-                            <td>Rp 45.000</td>
-                            <td><span class="status-badge status-unpaid">Belum Bayar</span></td>
-                            <td><a href="pembayaran.html" class="btn-action btn-pay">Bayar</a></td>
-                        </tr>
-                        <tr data-status="process">
-                            <td>#FY-00089</td>
-                            <td>05 Okt 2026</td>
-                            <td>Frame Anniversary Floral</td>
-                            <td>Rp 50.000</td>
-                            <td><span class="status-badge status-process">Diproses</span></td>
-                            <td><button class="btn-action btn-outline">Detail</button></td>
-                        </tr>
-                        <tr data-status="done">
-                            <td>#FY-00045</td>
-                            <td>20 Sep 2026</td>
-                            <td>Frame Keluarga</td>
-                            <td>Rp 55.000</td>
-                            <td><span class="status-badge status-done">Selesai</span></td>
-                            <td><button class="btn-action btn-outline">Beli Lagi</button></td>
+                        <!-- Rendered dynamically by script.js -->
+                        <tr>
+                            <td colspan="6" style="text-align:center; padding:40px; color:var(--text-light);">
+                                <i class="fas fa-spinner fa-spin" style="margin-right:8px;"></i> Memuat daftar pesanan...
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -107,9 +101,11 @@
         </div>
     </main>
 
-<script src="script.js"></script>
+    <!-- Simple Footer -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-

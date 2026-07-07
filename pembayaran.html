@@ -25,46 +25,60 @@
                     <ul>
                         <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
                         <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
-                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="notifikasi.html"><i class="fas fa-bell"></i> Notifikasi</a></li>
                         <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        </div>
     </header>
 
-    <main class="payment-container">
-        <div class="payment-card">
-            <h2>Pembayaran</h2>
-            <p class="payment-subtitle">Silakan pindai kode QR di bawah ini menggunakan aplikasi M-Banking atau E-Wallet Anda (GoPay, OVO, Dana, ShopeePay, dll).</p>
+    <!-- Breadcrumb & Back -->
+    <div class="breadcrumb">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; max-width: 1200px; margin: 0 auto; padding: 20px 5% 0;">
+            <div>
+                <a href="index.html">Beranda</a> &gt; <span>Pembayaran QRIS</span>
+            </div>
+            <a href="javascript:history.back()" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+    </div>
+
+    <main class="payment-container" style="min-height: calc(100vh - 160px); padding: 40px 5%;">
+        <div class="payment-card" style="background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center; max-width: 480px; width: 100%; margin: 0 auto;">
+            <h2 style="font-weight:700; margin-bottom:10px; font-size:1.8rem;">Scan QRIS Pembayaran</h2>
+            <p class="payment-subtitle" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 25px;">Silakan pindai kode QR di bawah ini menggunakan aplikasi M-Banking atau E-Wallet Anda (GoPay, OVO, Dana, ShopeePay, LinkAja, dll).</p>
             
-            <div class="qris-box">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QRIS Barcode" class="qr-code">
+            <div class="qris-box" style="background-color: #f7f9fc; padding: 25px; border-radius: 16px; margin-bottom: 25px; display:inline-block; border: 1px solid #eee;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QRIS Barcode" class="qr-code" style="width: 200px; height: 200px; display: block; margin: 0 auto;">
+                <div style="font-weight:700; font-size:1.2rem; color:var(--text-dark); margin-top:15px; letter-spacing: 2px;">QRIS DYNAMIC</div>
             </div>
 
-            <div class="payment-details">
-                <div class="detail-row">
-                    <span>ID Pesanan</span>
-                    <strong>#FY-00123</strong>
+            <div class="payment-details" style="text-align: left; background: #fdfdfd; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 30px;">
+                <div class="detail-row" style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                    <span style="color:var(--text-light); font-size:0.9rem;">ID Pesanan</span>
+                    <strong style="color:var(--text-dark); font-size:0.9rem;">#FY-00123</strong>
                 </div>
-                <div class="detail-row">
-                    <span>Total Pembayaran</span>
-                    <strong class="total-amount">Rp 45.000</strong>
+                <div class="detail-row" style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                    <span style="color:var(--text-light); font-size:0.9rem;">Total Pembayaran</span>
+                    <strong class="total-amount" style="color:var(--primary-color); font-size:1.1rem; font-weight:700;">Rp 45.000</strong>
                 </div>
-                <div class="detail-row">
-                    <span>Batas Waktu</span>
-                    <strong class="text-danger">23:59:59</strong>
+                <div class="detail-row" style="display:flex; justify-content:space-between;">
+                    <span style="color:var(--text-light); font-size:0.9rem;">Batas Waktu Transfer</span>
+                    <strong class="text-danger" style="font-size:0.9rem; font-weight:600;">23:59:59</strong>
                 </div>
             </div>
 
-            <a href="sukses.html" class="btn-primary btn-full mt-4">Saya Sudah Bayar</a>
+            <button class="btn-primary btn-full mt-4" style="width: 100%; border: none; cursor: pointer; padding: 15px 0; justify-content: center; font-weight: 600;">Saya Sudah Bayar</button>
         </div>
     </main>
 
-<script src="script.js"></script>
+    <!-- Simple Footer -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
