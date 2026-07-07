@@ -1886,3 +1886,192 @@ footer {
 .live-frame-preview.design-nature-duo-split-screen .photo-slot-item {
     border: 2px solid rgba(255,255,255,0.5) !important;
 }
+
+/* ==========================================
+   13. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Global Container */
+    body {
+        font-size: 14px;
+    }
+
+    /* Top Navbar Responsive */
+    header {
+        position: relative;
+        padding: 15px 5% !important;
+        background-color: var(--navy);
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Top navbar for internal pages (navbar-top) */
+    .navbar-top {
+        padding: 15px 5% !important;
+    }
+
+    .navbar-top .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .navbar-top .search-bar {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .navbar-top div[style*="display: flex"] {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    /* Hero Responsive */
+    .hero {
+        height: auto;
+        padding: 100px 5% 60px;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin: 0 auto 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        justify-content: center;
+    }
+
+    /* Grids */
+    .feature-grid, 
+    .product-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Customizer Page (detail.html) */
+    .detail-layout {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+        padding: 20px 0;
+    }
+
+    .main-image-preview-container {
+        min-height: 380px;
+        padding: 15px;
+    }
+
+    /* Dashboard Layout (profil, pesanan, notifikasi) */
+    .dashboard-layout {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 15px !important;
+    }
+
+    .sidebar-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 5px 0;
+        scrollbar-width: none; /* Hide scrollbar for clean view */
+    }
+
+    .sidebar-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0 !important;
+        white-space: nowrap;
+    }
+
+    .sidebar-menu a {
+        padding: 8px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    /* Stepper Progress Timeline */
+    .stepper-nodes {
+        justify-content: space-between;
+    }
+
+    .step-node .step-desc {
+        display: none !important; /* Hide descriptions to prevent squishing */
+    }
+
+    .step-node .step-label {
+        font-size: 0.7rem !important;
+        max-width: 60px;
+        margin-top: 5px;
+    }
+
+    .step-circle {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Status Page (status.html) */
+    .status-layout-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    .status-layout-grid #live-frame-preview {
+        transform: scale(0.85); /* Slightly downscale frame on mobile */
+        margin-bottom: -60px;
+    }
+
+    /* Summary / Ringkasan Page */
+    .checkout-layout {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    /* Table responsive wrapping */
+    .order-list {
+        overflow-x: auto;
+    }
+
+    table.table {
+        min-width: 600px;
+    }
+
+    /* Testimonials section */
+    .testimonials {
+        padding: 50px 5% !important;
+    }
+}
