@@ -428,8 +428,8 @@ const designTemplates = {
     'starry-blue-celebration': { name: 'Starry Blue Celebration', defaultSlots: 6, category: 'ulang-tahun', overlayType: 'birthday' },
     'nature-duo-split-screen': { name: 'Nature duo Split-Screen', defaultSlots: 2, category: 'keluarga', overlayType: 'family' },
     'grad-stripe-showcase': { name: 'Grad Stripe Showcase', defaultSlots: 3, category: 'wisuda', overlayType: 'wisuda' },
-    'sweetheart-lace-frame': { name: 'Sweetheart Lace Frame', defaultSlots: 6, category: 'anniversary', overlayType: 'anniversary' },
-    'minimalist-love': { name: 'Minimalist Love', defaultSlots: 3, category: 'anniversary', overlayType: 'anniversary' }
+    'sweetheart-lace-frame': { name: 'Sweetheart Lace Frame', defaultSlots: 6, category: 'valentine', overlayType: 'valentine' },
+    'minimalist-love': { name: 'Minimalist Love', defaultSlots: 3, category: 'valentine', overlayType: 'valentine' }
 };
 
 function initDetailPage() {
@@ -491,15 +491,15 @@ function initDetailPage() {
         detailState.font = "'Inter', sans-serif";
         detailState.photos = Array(3).fill('');
     } else if (id === 'sweetheart-lace-frame') {
-        detailState.color = '#800000'; // Maroon
-        detailState.colorName = 'Maroon';
+        detailState.color = '#8a2542'; // Magenta Maroon
+        detailState.colorName = 'Maroon Valentine';
         detailState.texts = {
-            name: 'Rian & Siska',
-            campus: 'Sweetheart Lace Frame',
-            date: '07 | 12 | 2026',
-            quote: 'Cinta sejati tak lekang oleh waktu'
+            name: '',
+            campus: '',
+            date: '',
+            quote: 'Every story is beautiful, but ours is my favorite.'
         };
-        detailState.font = "'Pacifico', cursive";
+        detailState.font = "'Playfair Display', serif";
         detailState.photos = Array(6).fill('');
     } else if (id === 'minimalist-love') {
         detailState.color = '#b76e79'; // Rose Gold
