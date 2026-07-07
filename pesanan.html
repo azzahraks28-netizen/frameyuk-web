@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Saya - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar-top">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+            </a>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari pesanan...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Halo, User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown">
+                    <ul>
+                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="pesanan.html" class="active"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="dashboard-content">
+            <div class="page-header-small">
+                <h2>Daftar Pesanan Saya</h2>
+                <p>Pantau status pesanan dan lakukan pembayaran</p>
+            </div>
+
+            <div class="order-tabs">
+                <button class="tab-btn active" data-filter="all">Semua</button>
+                <button class="tab-btn" data-filter="unpaid">Belum Bayar</button>
+                <button class="tab-btn" data-filter="process">Diproses</button>
+                <button class="tab-btn" data-filter="shipping">Dikirim</button>
+                <button class="tab-btn" data-filter="done">Selesai</button>
+            </div>
+
+            <div class="order-list">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID Pesanan</th>
+                            <th>Tanggal</th>
+                            <th>Produk</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-status="unpaid">
+                            <td>#FY-00123</td>
+                            <td>12 Okt 2026</td>
+                            <td>Frame Wisuda 3 Slot</td>
+                            <td>Rp 45.000</td>
+                            <td><span class="status-badge status-unpaid">Belum Bayar</span></td>
+                            <td><a href="pembayaran.html" class="btn-action btn-pay">Bayar</a></td>
+                        </tr>
+                        <tr data-status="process">
+                            <td>#FY-00089</td>
+                            <td>05 Okt 2026</td>
+                            <td>Frame Anniversary Floral</td>
+                            <td>Rp 50.000</td>
+                            <td><span class="status-badge status-process">Diproses</span></td>
+                            <td><button class="btn-action btn-outline">Detail</button></td>
+                        </tr>
+                        <tr data-status="done">
+                            <td>#FY-00045</td>
+                            <td>20 Sep 2026</td>
+                            <td>Frame Keluarga</td>
+                            <td>Rp 55.000</td>
+                            <td><span class="status-badge status-done">Selesai</span></td>
+                            <td><button class="btn-action btn-outline">Beli Lagi</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+

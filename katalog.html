@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar-top">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+            </a>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari frame...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Halo, User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown">
+                    <ul>
+                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Content -->
+    <main class="katalog-container">
+        <!-- Back to Home Link -->
+        <a href="index.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px;">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+
+        <div class="page-header" style="text-align: left; margin-bottom: 30px;">
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">Katalog Frame Digital</h1>
+            <p style="color: var(--text-light);">Temukan bingkai foto yang sesuai dengan momen spesial Anda</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="semua">Semua</button>
+            <button class="filter-btn" data-filter="wisuda">Wisuda</button>
+            <button class="filter-btn" data-filter="anniversary">Anniversary</button>
+            <button class="filter-btn" data-filter="ulang-tahun">Ulang Tahun</button>
+            <button class="filter-btn" data-filter="keluarga">Keluarga</button>
+            <button class="filter-btn" data-filter="kpop">Kpop</button>
+        </div>
+
+        <div class="product-grid katalog-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="wisuda">
+                <div class="image-wrapper">
+                    <img src="frame_wisuda.png" alt="Frame Wisuda">
+                    <span class="badge-new">New</span>
+                </div>
+                <h3>Frame Wisuda 3 Slot</h3>
+                <p>Frame elegan untuk 3 foto wisuda dengan latar belakang biru klasik.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 45.000</span>
+                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" data-category="wisuda">
+                <div class="image-wrapper">
+                    <img src="frame_wisuda.png" alt="Frame Wisuda">
+                </div>
+                <h3>Frame Wisuda Classic</h3>
+                <p>Desain minimalis dengan ornamen toga dan pita emas.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 45.000</span>
+                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="anniversary">
+                <div class="image-wrapper">
+                    <img src="frame_anniversary.png" alt="Frame Anniversary">
+                </div>
+                <h3>Frame Anniversary Floral</h3>
+                <p>Desain romantis dengan hiasan bunga, cocok untuk hadiah kado.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 50.000</span>
+                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="ulang-tahun">
+                <div class="image-wrapper">
+                    <img src="frame_birthday.png" alt="Frame Ulang Tahun">
+                </div>
+                <h3>Frame Birthday Party</h3>
+                <p>Warna-warni ceria untuk momen ulang tahun yang tak terlupakan.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 40.000</span>
+                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-category="keluarga">
+                <div class="image-wrapper">
+                    <img src="frame_wisuda.png" alt="Frame Keluarga">
+                </div>
+                <h3>Frame Family Tree</h3>
+                <p>Simpan kenangan keluarga dalam frame bernuansa kayu yang elegan.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 55.000</span>
+                    <a href="detail.html" class="btn-buy-full">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer for internal pages -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (filterValue === 'semua' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

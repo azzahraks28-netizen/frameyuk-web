@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .login-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        /* Left Panel - Hero Branding */
+        .login-hero {
+            flex: 1.2;
+            background-color: #e5dac9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: #10263f;
+            text-align: center;
+        }
+        .login-hero img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .login-hero h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            max-width: 400px;
+            line-height: 1.3;
+        }
+        /* Right Panel - Form */
+        .login-form-panel {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.02);
+        }
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .login-logo img {
+            height: 60px;
+        }
+        .login-box h2 {
+            font-size: 1.75rem;
+            color: #10263f;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .login-subtitle {
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #10263f;
+            font-size: 0.9rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            border-color: #b56133;
+        }
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.875rem;
+        }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .forgot-pw {
+            color: #b56133;
+            font-weight: 600;
+        }
+        .forgot-pw:hover {
+            text-decoration: underline;
+        }
+        .btn-login {
+            display: block;
+            width: 100%;
+            background-color: #b56133;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .btn-login:hover {
+            background-color: #9c4f26;
+        }
+        @media (max-width: 768px) {
+            .login-hero {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Left Side: Branding -->
+        <div class="login-hero">
+            <img src="hero_bg.png" alt="Abadikan Momen">
+            <h1>Abadikan Setiap Kenangan Bersama FrameYuk</h1>
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="login-form-panel">
+            <div class="login-box">
+                <div class="login-logo">
+                    <img src="logo.png" alt="FrameYuk Logo">
+                </div>
+                <h2>Selamat Datang</h2>
+                <p class="login-subtitle">Silakan masuk menggunakan akun Anda</p>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="nama@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Ingat Saya
+                        </label>
+                        <a href="#" class="forgot-pw">Lupa Kata Sandi?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">Masuk</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // Simpan status login sederhana
+            localStorage.setItem('isLoggedIn', 'true');
+            // Arahkan langsung ke halaman katalog setelah berhasil login
+            window.location.href = 'katalog.html';
+        }
+    </script>
+</body>
+</html>
+

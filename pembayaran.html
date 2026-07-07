@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <header class="navbar-top">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+            </a>
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Halo, User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown">
+                    <ul>
+                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="payment-container">
+        <div class="payment-card">
+            <h2>Pembayaran</h2>
+            <p class="payment-subtitle">Silakan pindai kode QR di bawah ini menggunakan aplikasi M-Banking atau E-Wallet Anda (GoPay, OVO, Dana, ShopeePay, dll).</p>
+            
+            <div class="qris-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QRIS Barcode" class="qr-code">
+            </div>
+
+            <div class="payment-details">
+                <div class="detail-row">
+                    <span>ID Pesanan</span>
+                    <strong>#FY-00123</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Total Pembayaran</span>
+                    <strong class="total-amount">Rp 45.000</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Batas Waktu</span>
+                    <strong class="text-danger">23:59:59</strong>
+                </div>
+            </div>
+
+            <a href="sukses.html" class="btn-primary btn-full mt-4">Saya Sudah Bayar</a>
+        </div>
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+

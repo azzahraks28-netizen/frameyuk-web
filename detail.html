@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - FrameYuk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar-top">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="FrameYuk Logo" class="logo-img">
+            </a>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari frame...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Halo, User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown">
+                    <ul>
+                        <li><a href="profil.html"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a href="pesanan.html"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="index.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Beranda</a> &gt; <a href="katalog.html">Katalog</a> &gt; <span>Frame Wisuda 3 Slot</span>
+        </div>
+    </div>
+
+    <!-- Product Detail Content -->
+    <main class="container detail-container">
+        <div class="detail-layout">
+            <!-- Left: Image Gallery -->
+            <div class="detail-gallery">
+                <div class="main-image">
+                    <img src="frame_wisuda.png" id="main-product-img" alt="Frame Wisuda 3 Slot" onerror="this.src='frame_wisuda.png';">
+                </div>
+                <div class="image-thumbnails">
+                    <div class="thumbnail active"><img src="frame_wisuda.png" alt="Thumb"></div>
+                    <div class="thumbnail"><img src="frame_wisuda.png" alt="Thumb"></div>
+                </div>
+                <div class="product-description-box">
+                    <h4>Deskripsi Produk</h4>
+                    <p>Frame elegan untuk momen wisuda Anda. Terdapat 3 slot foto yang bisa diisi. Bahan berkualitas tinggi dengan desain yang tak lekang oleh waktu.</p>
+                </div>
+            </div>
+
+            <!-- Right: Product Info & Form -->
+            <div class="detail-info">
+                <h1 class="product-title">Frame Wisuda 3 Slot</h1>
+                <div class="product-price">Rp 45.000</div>
+
+                <div class="customization-form">
+                    <div class="form-group">
+                        <label>Warna Frame</label>
+                        <div class="color-options">
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="black">
+                                <span class="color-swatch" style="background-color: #000;"></span>
+                            </label>
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="navy" checked>
+                                <span class="color-swatch" style="background-color: #000080;"></span>
+                            </label>
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="maroon">
+                                <span class="color-swatch" style="background-color: #800000;"></span>
+                            </label>
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="white">
+                                <span class="color-swatch" style="background-color: #ffffff; border: 2px solid #ccc;"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Foto (3 Slot)</label>
+                        <div class="upload-slots">
+                            <div class="upload-box" id="slot1-box">
+                                <i class="fas fa-plus"></i>
+                                <span>Slot 1</span>
+                                <input type="file" id="slot1-input" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="upload-box" id="slot2-box">
+                                <i class="fas fa-plus"></i>
+                                <span>Slot 2</span>
+                                <input type="file" id="slot2-input" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="upload-box" id="slot3-box">
+                                <i class="fas fa-plus"></i>
+                                <span>Slot 3</span>
+                                <input type="file" id="slot3-input" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        <small class="text-muted">*Pastikan resolusi foto cukup besar agar hasil cetak maksimal.</small>
+                    </div>
+
+                    <div class="form-group action-group">
+                        <div class="quantity-control">
+                            <button type="button" class="qty-btn" id="qty-minus">-</button>
+                            <input type="number" id="qty-number" value="1" min="1" class="qty-input">
+                            <button type="button" class="qty-btn" id="qty-plus">+</button>
+                        </div>
+                        <a href="pesanan.html" id="btn-order" class="btn-primary btn-large">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="footer-simple">
+        <p>&copy; 2026 FrameYuk - Frame Digital. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script for changing quantity
+            const qtyInput = document.getElementById('qty-number');
+            const btnMinus = document.getElementById('qty-minus');
+            const btnPlus = document.getElementById('qty-plus');
+            
+            if (btnMinus && btnPlus && qtyInput) {
+                btnMinus.addEventListener('click', () => {
+                    let val = parseInt(qtyInput.value);
+                    if (val > 1) qtyInput.value = val - 1;
+                });
+                
+                btnPlus.addEventListener('click', () => {
+                    let val = parseInt(qtyInput.value);
+                    qtyInput.value = val + 1;
+                });
+            }
+
+            // Script for changing image color via changing image source
+            const colorRadios = document.querySelectorAll('input[name="color"]');
+            const mainImage = document.getElementById('main-product-img');
+            
+            if (mainImage) {
+                colorRadios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        const color = e.target.value;
+                        if (color === 'navy') {
+                            mainImage.src = 'frame_wisuda.png';
+                        } else {
+                            mainImage.src = `frame_wisuda_${color}.png`;
+                        }
+                    });
+                });
+            }
+
+            // Script for handling photo uploads in slots
+            for (let i = 1; i <= 3; i++) {
+                const box = document.getElementById(`slot${i}-box`);
+                const input = document.getElementById(`slot${i}-input`);
+
+                if (box && input) {
+                    // Klik box untuk trigger input file
+                    box.addEventListener('click', () => {
+                        input.click();
+                    });
+
+                    // Ketika file dipilih, tampilkan preview-nya
+                    input.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                box.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`;
+                                box.style.border = 'none'; // hilangkan garis putus-putus
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                }
+            }
+
+            // Script for order placement
+            const btnOrder = document.getElementById('btn-order');
+            if (btnOrder && qtyInput) {
+                btnOrder.addEventListener('click', (e) => {
+                    // Read color
+                    const activeColorRadio = document.querySelector('input[name="color"]:checked');
+                    const colorMap = {
+                        'navy': 'Navy',
+                        'black': 'Hitam',
+                        'maroon': 'Maroon',
+                        'white': 'Putih'
+                    };
+                    const colorName = activeColorRadio ? (colorMap[activeColorRadio.value] || 'Navy') : 'Navy';
+                    
+                    // Read quantity
+                    const qty = parseInt(qtyInput.value) || 1;
+                    
+                    // Calculate total
+                    const pricePerItem = 45000;
+                    const total = pricePerItem * qty;
+                    
+                    // Check if photos are uploaded
+                    let photosCount = 0;
+                    for (let i = 1; i <= 3; i++) {
+                        const box = document.getElementById(`slot${i}-box`);
+                        if (box && box.querySelector('img')) {
+                            photosCount++;
+                        }
+                    }
+                    
+                    // Store order info in localStorage
+                    localStorage.setItem('pending_order_active', 'true');
+                    localStorage.setItem('pending_order_color', colorName);
+                    localStorage.setItem('pending_order_qty', qty);
+                    localStorage.setItem('pending_order_total', total);
+                    localStorage.setItem('pending_order_photos_count', photosCount);
+                    localStorage.setItem('order_FY00123_status', 'unpaid'); // reset status to unpaid
+                });
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
