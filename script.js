@@ -435,12 +435,84 @@ const designTemplates = {
 function initDetailPage() {
     // Get frame id from URL
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id') || 'wisuda-3-slot';
-    const template = designTemplates[id] || designTemplates['wisuda-3-slot'];
+    const id = params.get('id') || 'grad-stripe-showcase';
+    const template = designTemplates[id] || designTemplates['grad-stripe-showcase'];
     
+    // Set dynamic defaults based on design ID
     detailState.frameId = id;
     detailState.frameName = template.name;
-    detailState.photos = Array(template.defaultSlots).fill('');
+    detailState.packageType = 'premium';
+    detailState.packageName = 'Premium';
+    detailState.qty = 1;
+    detailState.size = 'Strip';
+    
+    if (id === 'royal-red-damask') {
+        detailState.color = '#800000'; // Maroon
+        detailState.colorName = 'Maroon';
+        detailState.texts = {
+            name: 'Jasmin & Reza',
+            campus: 'the wedding of',
+            date: '07 | 12 | 2026',
+            quote: 'Abadi dalam Kasih dan Janji Suci'
+        };
+        detailState.font = "'Playfair Display', serif";
+        detailState.photos = Array(6).fill('');
+    } else if (id === 'starry-blue-celebration') {
+        detailState.color = '#10263f'; // Navy
+        detailState.colorName = 'Navy';
+        detailState.texts = {
+            name: 'Happy Birthday',
+            campus: 'Starry Blue Celebration',
+            date: '08 Juli 2026',
+            quote: 'Semoga panjang umur dan bahagia selalu!'
+        };
+        detailState.font = "'Inter', sans-serif";
+        detailState.photos = Array(6).fill('');
+    } else if (id === 'nature-duo-split-screen') {
+        detailState.color = '#0f5257'; // Emerald
+        detailState.colorName = 'Emerald';
+        detailState.texts = {
+            name: 'Keluarga Pratama',
+            campus: 'Nature duo Split-Screen',
+            date: '08 Juli 2026',
+            quote: 'Kehangatan rumah dalam kebersamaan'
+        };
+        detailState.font = "'Inter', sans-serif";
+        detailState.photos = Array(2).fill('');
+    } else if (id === 'grad-stripe-showcase') {
+        detailState.color = '#10263f'; // Navy
+        detailState.colorName = 'Navy';
+        detailState.texts = {
+            name: 'Ahmad S.Kom',
+            campus: 'Universitas Indonesia',
+            date: '08 Juli 2026',
+            quote: 'Perjuangan telah usai, petualangan dimulai!'
+        };
+        detailState.font = "'Inter', sans-serif";
+        detailState.photos = Array(3).fill('');
+    } else if (id === 'sweetheart-lace-frame') {
+        detailState.color = '#800000'; // Maroon
+        detailState.colorName = 'Maroon';
+        detailState.texts = {
+            name: 'Rian & Siska',
+            campus: 'Sweetheart Lace Frame',
+            date: '07 | 12 | 2026',
+            quote: 'Cinta sejati tak lekang oleh waktu'
+        };
+        detailState.font = "'Pacifico', cursive";
+        detailState.photos = Array(6).fill('');
+    } else if (id === 'minimalist-love') {
+        detailState.color = '#b76e79'; // Rose Gold
+        detailState.colorName = 'Rose Gold';
+        detailState.texts = {
+            name: 'Kisah Kasih Abadi',
+            campus: 'Minimalist Love',
+            date: '08 Juli 2026',
+            quote: 'Sederhana namun penuh dengan cinta'
+        };
+        detailState.font = "'Playfair Display', serif";
+        detailState.photos = Array(3).fill('');
+    }
 
     // Restore previous active draft if existing
     const savedDraft = localStorage.getItem('fy_current_order');
@@ -1077,6 +1149,22 @@ function initRingkasanPage() {
                     </tr>
                 </table>
 
+                <h3 style="margin-bottom: 20px; font-weight:600; font-size:1.3rem; margin-top:30px;">Data Pemesan</h3>
+                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:25px;">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label style="font-weight:600; font-size:0.85rem; display:block; margin-bottom:6px;">Nama Pemesan</label>
+                        <input type="text" id="cust-name" class="form-input" value="${user?.name || ''}" placeholder="Nama Lengkap" style="border: 1px solid #ddd; width: 100%; height:40px; border-radius:6px; padding:0 12px; font-size:0.9rem;" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label style="font-weight:600; font-size:0.85rem; display:block; margin-bottom:6px;">Nomor WhatsApp</label>
+                        <input type="tel" id="cust-phone" class="form-input" value="${user?.phone || ''}" placeholder="Contoh: 081234567890" style="border: 1px solid #ddd; width: 100%; height:40px; border-radius:6px; padding:0 12px; font-size:0.9rem;" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label style="font-weight:600; font-size:0.85rem; display:block; margin-bottom:6px;">Email Pengiriman (Hasil PNG)</label>
+                        <input type="email" id="cust-email" class="form-input" value="${user?.email || ''}" placeholder="nama@email.com" style="border: 1px solid #ddd; width: 100%; height:40px; border-radius:6px; padding:0 12px; font-size:0.9rem;" required>
+                    </div>
+                </div>
+
                 <h3 style="margin-bottom: 20px; font-weight:600; font-size:1.3rem; margin-top:30px;">Rincian Pembayaran</h3>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-light);">
                     <span>Subtotal</span>
@@ -1103,6 +1191,15 @@ function initRingkasanPage() {
     const checkoutBtn = document.getElementById('btn-ringkasan-checkout');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
+            const customerName = document.getElementById('cust-name').value.trim();
+            const customerPhone = document.getElementById('cust-phone').value.trim();
+            const customerEmail = document.getElementById('cust-email').value.trim();
+
+            if (!customerName || !customerPhone || !customerEmail) {
+                alert("Harap lengkapi semua Data Pemesan sebelum melanjutkan pembayaran.");
+                return;
+            }
+
             const orders = getOrders();
             const newOrderId = "FY-00" + (100 + orders.length + 1);
             
@@ -1126,6 +1223,9 @@ function initRingkasanPage() {
                 texts: currentOrder.texts,
                 photos: currentOrder.photos,
                 font: currentOrder.font,
+                customerName: customerName,
+                customerPhone: customerPhone,
+                customerEmail: customerEmail,
                 statusHistory: [
                     { step: "Pesanan Dibuat", time: getCurrentTimeString() }
                 ]
@@ -1461,6 +1561,15 @@ function renderStatusPageLayout(order) {
                         <li><strong>Jurusan/Kampus:</strong> ${order.texts.campus}</li>
                         <li><strong>Tanggal:</strong> ${order.texts.date}</li>
                         <li><strong>Quotes:</strong> "${order.texts.quote}"</li>
+                    </ul>
+                </div>
+
+                <div style="border-top:1px solid var(--border-color); padding-top:20px; margin-top:10px;">
+                    <h4 style="font-weight:600; font-size:0.95rem; margin-bottom:10px;">Data Pemesan</h4>
+                    <ul style="font-size:0.85rem; color:var(--text-light); display:flex; flex-direction:column; gap:5px;">
+                        <li><strong>Nama Pemesan:</strong> ${order.customerName || 'User'}</li>
+                        <li><strong>No. WhatsApp:</strong> ${order.customerPhone || '081234567890'}</li>
+                        <li><strong>Email Kirim:</strong> ${order.customerEmail || 'user@example.com'}</li>
                     </ul>
                 </div>
             </div>
